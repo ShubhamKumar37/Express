@@ -1,0 +1,16 @@
+{
+  "name": "express-practice",
+  "version": "1.0.0",
+  "description": "Learning from code with harry",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  }
+}
