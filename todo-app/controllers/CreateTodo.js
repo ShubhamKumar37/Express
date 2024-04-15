@@ -1,34 +1,25 @@
-// import the model
-const Todo = require("../models/Todo");
+const Todo = require('../Models/Todo');
 
-// define route handler
-exports.createTodo = async(Req, Res) =>
+exports.createTodo = async (req, res) =>
 {
     try
     {
-        // extract title and Description from request body
-        const {Title, Description} = Req.body;
+        const {title, description} = req.body;
+        const response = await Todo.create({title, description});
 
-        // Create a new todo object and insert to DB
-        const Response = await Todo.create({Title, Description});
-
-        //send a json response as the success flag 
-        Res.status(200).json(
-            {
-                success:true,
-                data:Response,
-                message:'Entry created successfully'
-            }
-        )
+        res.status(200).json({
+            success: true,
+            data: response,
+            message: "Entry is successful"
+        });
     }
-
     catch(Error)
     {
-        console.log("Error ho gaya bhaiya");
-        Res.status(500).json({
-            success:false,
-            data:"Internal Server Problem",
-            message:Error.message,
-        })
+        console.log("Error in creating a entry");
+        res.status(500).json({
+            success: false,
+            data: "Error in entry",
+            message: Error.message
+        });
     }
 }
