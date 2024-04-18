@@ -11,7 +11,7 @@ app.listen(process.env.PORT, () =>
 
 app.use(express.json());
 
-app.get('/', (req, res) =>
+app.get('/', (req, res) =>  
 {
     res.send("<h1>hi i am shubham kumar and i started this server</h1>");
 });
@@ -19,3 +19,5 @@ app.get('/', (req, res) =>
 app.use("/api/v1", Route);
 
 dbConnectionString();
+
+// simple meaning of mounting is addition
