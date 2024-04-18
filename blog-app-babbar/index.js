@@ -9,6 +9,8 @@ app.listen(process.env.PORT, () =>
     console.log(`Server is live on port number ${process.env.PORT}`);
 });
 
+app.use(express.json());
+
 app.get('/', (req, res) =>
 {
     res.send("<h1>hi i am shubham kumar and i started this server</h1>");

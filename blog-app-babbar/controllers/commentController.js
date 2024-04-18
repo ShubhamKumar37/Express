@@ -1,4 +1,5 @@
-const Post = require("../models/PostModel");
+const Post = require("../models/postModel");
+const Comment = require("../models/commentModel");
 
 exports.createComment = async (req, res) =>
 {
@@ -17,7 +18,7 @@ exports.createComment = async (req, res) =>
         // $push is an operator like append function (Maybe for understanding only).
         // {new:true} will help to return the final updated document to us.
         // exec to execute the query.
-        const updatedPost = await Post.findByIdAndUpdate(post, {$push : {comment: savedComment._id}}, {new: true}).populate().exec();
+        const updatedPost = await Post.findByIdAndUpdate(post, {$push : {comments: savedComment._id}}, {new: true}).populate("comments").exec();
 
         res.status(200).json({
             post: updatedPost,
